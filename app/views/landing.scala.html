@@ -1,0 +1,97 @@
+@(message: String)
+
+@mainContent() = {
+    <header>
+        <h1>@message</h1>
+    </header>
+    <div class="grid-wrapper attorneyContainer">
+        <div class="attorneyBanner grid [modifier class]">
+            <div class="grid grid-2-3">
+                <div class="inner-block">
+                    You're using this service for
+                    <span class="heading-small">John Smith</span>.
+                </div>
+            </div>
+            <div class="grid grid-1-3">
+                <div class="inner-block">
+                    <a href="" class="banner-links">Return to your account</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="subsection">
+        Forage meggings distillery pug 8-bit, biodiesel portland sartorial fingerstache four dollar toast kogi retro. Lomo mustache before they sold out readymade pinterest cronut. Chicharrones meditation cardigan, vinyl sustainable polaroid portland pour-over quinoa.
+    </div>
+    <form action="#"
+    data-ajax-submit="true"
+    data-container="#selector" data-callback-name="[libraryname].callbacks"
+    data-callback-args="#selector,insert|replace"
+    >
+        <fieldset class="form-field-group">
+            <label class="block-label form-field--inline">
+                Yes
+                <input name="example_text_input" type="radio" value="example value"/>
+            </label>
+            <label class="block-label form-field--inline">
+                No
+                <input name="example_text_input" type="radio" value="example value"/>
+            </label>
+            <div class="form-field">
+                <button class="button" type="submit">Send</button>
+            </div>
+        </fieldset>
+    </form>
+    <table class="js-datatable dataTable no-footer "
+    data-dom="<'dataTables-filter__block'f>tip"
+    data-order='[3,"asc"]'
+    data-fixed-Header="true"
+    data-page-Length="200"
+    data-auto-Width="false"
+    data-column-Defs='[{"targets": [0], "width": "50%"},{"targets": [1],"width": "20%"},{"targets": [2,3],"width": "15%"}]'
+    data-language='{"sSearchPlaceholder":"Search by client name / reference","sSearch":"<span class=\"full-width shim text--left\"><strong>Search Client list</strong></span>"}'>
+        <thead>
+            <tr role="row">
+                <th tabindex="0">Name</th>
+                <th data-orderable="false" data-search="false">Gender</th>
+                <th tabindex="0">Age</th>
+                <th tabindex="0">Nationality</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="tabular-data__cell--centred" role="row">
+                <td>Ben Smith</td>
+                <td>male</td>
+                <td>38</td>
+                <td>British</td>
+            </tr>
+            <tr class="tabular-data__cell--centred status--confirm-success"
+            role="row">
+                <td>Anna Rose</td>
+                <td>female</td>
+                <td>27</td>
+                <td>French</td>
+            </tr>
+            <tr class="tabular-data__cell--centred status--unconfirmed"
+            role="row">
+                <td>George wells</td>
+                <td>male</td>
+                <td>43</td>
+                <td>South African</td>
+            </tr>
+        </tbody>
+    </table>
+}
+
+@sidebarLinks() = {
+    <aside class="sidebar sidebar--hidden-sm section--blue-top">
+        <section class="subsection messages-box">
+            sidebar
+        </section>
+    </aside>
+}
+
+@views.html.main(
+    title = "Self Service Time To Pay",
+    bodyClasses = None,
+    sidebarLinks = Some(sidebarLinks)
+)(mainContent)
