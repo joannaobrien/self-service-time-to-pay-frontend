@@ -2,7 +2,9 @@ name := "self-service-time-to-pay"
 
 version := "1.0-SNAPSHOT"
 
-lazy val `self-service-time-to-pay-frontend` = (project in file(".")).enablePlugins(PlayJava)
+Defaults.itSettings
+
+lazy val `self-service-time-to-pay-frontend` = project in file(".") enablePlugins PlayJava configs IntegrationTest
 
 scalaVersion := "2.11.8"
 
