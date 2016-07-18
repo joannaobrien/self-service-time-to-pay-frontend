@@ -2,9 +2,9 @@ name := "self-service-time-to-pay"
 
 version := "1.0-SNAPSHOT"
 
-lazy val root = (project in file(".")).enablePlugins(PlayJava)
+lazy val `self-service-time-to-pay-frontend` = (project in file(".")).enablePlugins(PlayJava)
 
-scalaVersion := "2.11.7"
+scalaVersion := "2.11.8"
 
 libraryDependencies ++= Seq(
   javaJdbc,
