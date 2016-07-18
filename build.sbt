@@ -1,4 +1,4 @@
-name := "self-service-time-to-pay"
+name := "self-service-time-to-pay-frontend"
 
 version := "1.0-SNAPSHOT"
 
