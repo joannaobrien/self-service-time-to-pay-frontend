@@ -4,9 +4,11 @@ resolvers += "Typesafe Releases" at "http://repo.typesafe.com/typesafe/releases/
 
 addSbtPlugin("com.github.gseitz" % "sbt-release" % "0.8.5")
 
+addSbtPlugin("uk.gov.hmrc" % "sbt-git-versioning" % "0.8.0")
+
 addSbtPlugin("uk.gov.hmrc" % "sbt-settings" % "3.2.0")
 
-addSbtPlugin("uk.gov.hmrc" % "sbt-distributables" % "0.9.0")
+addSbtPlugin("uk.gov.hmrc" % "sbt-distributables" % "0.11.0")
 
 addSbtPlugin("uk.gov.hmrc" % "hmrc-resolvers" % "0.4.0")
 
