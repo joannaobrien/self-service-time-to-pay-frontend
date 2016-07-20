@@ -28,7 +28,7 @@
 
 @insideHeader = {
 @uiLayouts.header_nav(
-    navTitle = Some("test-frontend"),
+    navTitle = Some(Messages("ssttp.common.title")),
     navTitleLink = None,
     showBetaLink = false,
     navLinks = Some(headerNavLinks))
@@ -51,7 +51,7 @@
 
 @serviceInfo = {
 @uiLayouts.serviceInfo(
-    betaBanner = HtmlFormat.empty,
+    betaBanner = uiLayouts.betaBanner(false, "contact/beta-feedback?service=SSTTP", "contact/beta-feedback-unauthenticated?service=SSTTP", true),
     includeGridWrapper = false,
     serviceInfoContent = Some(serviceInfoContent))
 }
