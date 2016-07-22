@@ -1,8 +1,16 @@
 name := "self-service-time-to-pay-frontend"
 
+// [START] Temporary solution until release of new version of sbt-auto-build with junit fix
+testOptions in Test := Seq()
+testOptions in Test += Tests.Argument(TestFrameworks.Specs2, "sequential", "true", "junitxml", "console")
+testOptions in Test += Tests.Argument(TestFrameworks.JUnit, "--ignore-runners=org.specs2.runner.JUnitRunner")
+testOptions in Test += Tests.Argument(TestFrameworks.JUnit, "-q", "-v", "-a")
+testOptions in Test += Tests.Argument(TestFrameworks.ScalaTest, "-o", "-u", "target/test-reports", "-h", "target/test-reports/html-report")
+// [END] Temporary solution until release of new version of sbt-auto-build with junit fix
+
 inConfig(IntegrationTest)(Defaults.itSettings)
 
-val plugins = PlayJava && SbtAutoBuildPlugin && SbtGitVersioning && SbtDistributablesPlugin
+val plugins = PlayJava && SbtAutoBuildPlugin && SbtDistributablesPlugin
 
 val compileDependencies = Seq(
   "uk.gov.hmrc" %% "play-ui" % "4.14.0",
@@ -23,7 +31,8 @@ val testDependencies = Seq(
   "org.pegdown" % "pegdown" % "1.6.0",
   "com.github.tomakehurst" % "wiremock" % "1.58",
   "org.seleniumhq.selenium" % "selenium-java" % "2.52.0",
-  "com.jayway.restassured" % "rest-assured" % "2.9.0"
+  "com.jayway.restassured" % "rest-assured" % "2.9.0",
+  "com.novocode" % "junit-interface" % "0.11"
 ).map(d => d % Test)
 
 libraryDependencies ++= Seq(

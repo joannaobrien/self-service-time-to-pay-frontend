@@ -33,9 +33,4 @@ public class LandingControllerTest {
         assertThat(html.contentType(), is("text/html"));
         assertThat(contentAsString(html), containsString("Welcome to Self Service Time To Pay"));
     }
-
-    @Test
-    public void test() {
-        fail("Test fail");
-    }
 }
