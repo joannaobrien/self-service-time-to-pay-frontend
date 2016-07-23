@@ -10,7 +10,9 @@ testOptions in Test += Tests.Argument(TestFrameworks.ScalaTest, "-o", "-u", "tar
 
 inConfig(IntegrationTest)(Defaults.itSettings)
 
-val plugins = PlayJava && SbtAutoBuildPlugin && SbtDistributablesPlugin && SbtGitVersioning
+val plugins = PlayJava && SbtAutoBuildPlugin && SbtGitVersioning && SbtDistributablesPlugin
+
+SbtDistributablesPlugin.publishingSettings
 
 val compileDependencies = Seq(
   "uk.gov.hmrc" %% "play-ui" % "4.14.0",
