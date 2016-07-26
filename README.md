@@ -19,10 +19,7 @@ You can also build/debug/run from inside the IDE in the same fashion as you woul
 
 To get the application in IntelliJ, just select Open (not import), then the location where you cloned the git repo.
 
-
 The default application route is http://localhost:9000/self-service-time-to-pay
-
-The 404 page (error_template) that should appear when you hit http://localhost:9000 is not wired to the Global settings yet.
 
 ### License
 
