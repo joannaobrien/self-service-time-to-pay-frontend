@@ -1,5 +1,4 @@
-@import uk.gov.hmrc.ssttp.config.AppConfig
-
+@import uk.gov.hmrc.ssttp.config.SsttpFrontendConfig
 @(title: String,
         sidebarLinks: Option[Html] = None,
         contentHeader: Option[Html] = None,
@@ -18,7 +17,7 @@
 }
 
 
-@govuk_wrapper(appConfig = new AppConfig(),
+@govuk_wrapper(appConfig = new SsttpFrontendConfig(),
     title = title,
     mainClass = mainClass,
     bodyClasses = bodyClasses,

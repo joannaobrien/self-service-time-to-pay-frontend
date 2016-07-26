@@ -18,7 +18,7 @@ package uk.gov.hmrc.ssttp.config;
 
 import com.typesafe.config.ConfigFactory;
 
-public class AppConfig {
+public class SsttpFrontendConfig {
     private static final String contactHost = "contact-frontend.host";
     private static final String contactFormServiceIdentifier = "self-service-time-to-pay";
 
