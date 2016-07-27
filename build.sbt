@@ -1,4 +1,8 @@
 name := "self-service-time-to-pay-frontend"
+crossPaths := false
+autoScalaLibrary := false
+
+testFrameworks := Seq(TestFrameworks.JUnit)
 
 // [START] Temporary solution until release of new version of sbt-auto-build with junit fix
 testOptions in Test := Seq()
@@ -33,7 +37,8 @@ val testDependencies = Seq(
   "org.pegdown" % "pegdown" % "1.6.0",
   "com.github.tomakehurst" % "wiremock" % "1.58",
   "org.seleniumhq.selenium" % "selenium-java" % "2.52.0",
-  "com.jayway.restassured" % "rest-assured" % "2.9.0"
+  "com.jayway.restassured" % "rest-assured" % "2.9.0",
+  "com.novocode" % "junit-interface" % "0.11"
 ).map(d => d % Test)
 
 libraryDependencies ++= Seq(
