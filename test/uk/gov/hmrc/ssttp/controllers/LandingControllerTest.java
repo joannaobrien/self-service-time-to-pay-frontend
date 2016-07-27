@@ -17,12 +17,13 @@
 package uk.gov.hmrc.ssttp.controllers;
 
 import org.junit.Test;
+import play.i18n.Messages;
 import play.twirl.api.Content;
+import static play.test.Helpers.*;
 
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
-import static play.test.Helpers.*;
 
 public class LandingControllerTest {
 
@@ -31,7 +32,7 @@ public class LandingControllerTest {
         running(fakeApplication(), () -> {
             Content html = views.html.landing.render("Self Service Time To Pay");
             assertThat(html.contentType(), is("text/html"));
-            assertThat(contentAsString(html), containsString("You can arrange to pay your tax in instalments in some situations"));
+            assertThat(contentAsString(html), containsString(Messages.get("ssttp.landing.intro")));
         });
    }
 }

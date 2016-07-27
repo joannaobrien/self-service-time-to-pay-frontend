@@ -1,3 +1,6 @@
+import de.heikoseeberger.sbtheader.license.Apache2_0
+import uk.gov.hmrc.HeaderSettings
+
 name := "self-service-time-to-pay-frontend"
 crossPaths := false
 autoScalaLibrary := false
@@ -5,6 +8,8 @@ autoScalaLibrary := false
 testFrameworks := Seq(TestFrameworks.JUnit)
 
 // [START] Temporary solution until release of new version of sbt-auto-build with junit fix
+headers += { "java" -> Apache2_0(HeaderSettings.copyrightYear, HeaderSettings.copyrightOwner) }
+
 testOptions in Test := Seq()
 testOptions in Test += Tests.Argument(TestFrameworks.Specs2, "sequential", "true", "junitxml", "console")
 testOptions in Test += Tests.Argument(TestFrameworks.JUnit, "--ignore-runners=org.specs2.runner.JUnitRunner")
@@ -29,6 +34,7 @@ val compileDependencies = Seq(
   "uk.gov.hmrc" %% "play-json-logger" % "2.1.1",
   "uk.gov.hmrc" %% "play-partials" % "4.2.0",
   "org.apache.httpcomponents" % "httpclient" % "4.5.2",
+  "org.apache.httpcomponents" % "httpcore" % "4.4.1",
   "com.kenshoo" %% "metrics-play" % "2.3.0_0.1.8"
 )
 
@@ -45,7 +51,8 @@ libraryDependencies ++= Seq(
   javaJdbc,
   javaEbean,
   cache,
-  javaWs
+  javaWs,
+  filters
 )
 
 libraryDependencies ++= compileDependencies
