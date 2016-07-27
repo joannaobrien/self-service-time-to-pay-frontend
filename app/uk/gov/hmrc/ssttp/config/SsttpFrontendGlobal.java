@@ -1,3 +1,19 @@
+/*
+ * Copyright 2016 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package uk.gov.hmrc.ssttp.config;
 
 import play.GlobalSettings;
@@ -12,25 +28,25 @@ import static play.mvc.Results.*;
 
 public class SsttpFrontendGlobal extends GlobalSettings {
 
-    public Html standardErrorTemplate(String pageTitle, String heading, String message){
+    private Html standardErrorTemplate(String pageTitle, String heading, String message){
         return views.html.error_template.render(pageTitle, heading, message);
     }
 
-    public Result badRequestTemplate(RequestHeader rh) {
+    private Result badRequestTemplate(RequestHeader rh) {
         return badRequest(standardErrorTemplate(
             Messages.get("global.error.badRequest400.title"),
             Messages.get("global.error.badRequest400.heading"),
             Messages.get("global.error.badRequest400.message")));
     }
 
-    public Result notFoundTemplate(RequestHeader rh) {
+    private Result notFoundTemplate(RequestHeader rh) {
         return notFound(standardErrorTemplate(
             Messages.get("global.error.pageNotFound404.title"),
             Messages.get("global.error.pageNotFound404.heading"),
             Messages.get("global.error.pageNotFound404.message")));
     }
 
-    public Result internalServerErrorTemplate() {
+    private Result internalServerErrorTemplate() {
         return internalServerError(standardErrorTemplate(
             Messages.get("global.error.InternalServerError500.title"),
             Messages.get("global.error.InternalServerError500.heading"),
@@ -50,7 +66,7 @@ public class SsttpFrontendGlobal extends GlobalSettings {
         return Promise.pure(resolveError(t));
     }
 
-    public Result resolveError(Throwable t) {
+    Result resolveError(Throwable t) {
         Logger.error(t.getMessage()+t.getCause());
         return internalServerErrorTemplate();
     }
