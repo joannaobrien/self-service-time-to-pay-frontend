@@ -1,4 +1,5 @@
 @import uk.gov.hmrc.ssttp.config.SsttpFrontendConfig
+
 @(appConfig: SsttpFrontendConfig,
         title: String,
         mainClass: Option[String] = None,
@@ -15,66 +16,66 @@
 @import uk.gov.hmrc.play.views.html.{helpers => uiHelpers}
 
 @head = {
-@uiLayouts.head(
-    assetsPrefix = appConfig.assetsPrefix,
-    linkElem = None,
-    headScripts = None)
+    @uiLayouts.head(
+        assetsPrefix = appConfig.assetsPrefix,
+        linkElem = None,
+        headScripts = None
+    )
     <meta name="format-detection" content="telephone=no" />
 }
 
-@headerNavLinks = {
-    <li><a id="homeNavHref" href="http://www.google.com"
-    data-journey-click="primary-navigation:Click:Home">Home</a></li>
-}
-
 @insideHeader = {
-@uiLayouts.header_nav(
-    navTitle = Some(Messages("ssttp.common.title")),
-    navTitleLink = None,
-    showBetaLink = false,
-    navLinks = Some(headerNavLinks))
+    @uiLayouts.header_nav(
+        navTitle = Some(Messages("ssttp.common.title")),
+        navTitleLink = None,
+        showBetaLink = false,
+        navLinks = Some(Html(""))
+    )
 }
 
 @afterHeader = {}
 
 @bodyEnd = {
-@uiLayouts.footer(
-    analyticsToken = Some(appConfig.analyticsToken),
-    analyticsHost = appConfig.analyticsHost,
-    assetsPrefix = appConfig.assetsPrefix,
-    ssoUrl = None,
-    scriptElem = scriptElem,
-    gaCalls = None)
+    @uiLayouts.footer(
+        analyticsToken = Some(appConfig.analyticsToken),
+        analyticsHost = appConfig.analyticsHost,
+        assetsPrefix = appConfig.assetsPrefix,
+        ssoUrl = None,
+        scriptElem = scriptElem,
+        gaCalls = None
+    )
 }
 
 @footerTop = {}
 @footerLinks = {}
 
 @serviceInfo = {
-@uiLayouts.serviceInfo(
-    betaBanner = Html(""),
-    //betaBanner = uiLayouts.betaBanner(false, "contact/beta-feedback?service=SSTTP", "contact/beta-feedback-unauthenticated?service=SSTTP", true),
-    includeGridWrapper = false,
-    serviceInfoContent = Some(serviceInfoContent))
+    @uiLayouts.serviceInfo(
+        betaBanner = Html(""),
+        //betaBanner = uiLayouts.betaBanner(false, "contact/beta-feedback?service=SSTTP", "contact/beta-feedback-unauthenticated?service=SSTTP", true),
+        includeGridWrapper = false,
+        serviceInfoContent = Some(serviceInfoContent)
+    )
 }
 
 @mainContentHeader = {
-@if(contentHeader.isDefined) {
-    @uiLayouts.main_content_header(contentHeader = contentHeader.get)
-}
+    @if(contentHeader.isDefined) {
+        @uiLayouts.main_content_header(contentHeader = contentHeader.get)
+    }
 }
 
 @getHelpForm = @{uiHelpers.reportAProblemLink(appConfig.reportAProblemPartialUrl, appConfig.reportAProblemNonJSUrl)}
 
 @content = {
-@uiLayouts.main_content(
-    article = mainContent,
-    mainClass = mainClass,
-    mainDataAttributes = mainDataAttributes,
-    mainContentHeader = mainContentHeader,
-    serviceInfo = serviceInfo,
-    getHelpForm = getHelpForm,
-    sidebar = sidebar)
+    @uiLayouts.main_content(
+        article = mainContent,
+        mainClass = mainClass,
+        mainDataAttributes = mainDataAttributes,
+        mainContentHeader = mainContentHeader,
+        serviceInfo = serviceInfo,
+        getHelpForm = getHelpForm,
+        sidebar = sidebar
+    )
 }
 
 @hmrcGovUkTemplate(Some(title), bodyClasses)(head, bodyEnd, insideHeader, afterHeader, footerTop, Some(uiLayouts.footer_links()), nav = true)(content)

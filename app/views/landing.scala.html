@@ -1,5 +1,6 @@
-@(message: String)
+@import play.api.Play.current
 
+@(message: String)
 @mainContent() = {
     <header class="page-header text">
         <h1 class="h1-heading">@Messages("ssttp.landing.title")</h1>
@@ -7,7 +8,16 @@
     <div class="subsection">
         @Messages("ssttp.landing.intro")
     </div>
+    <div class="subsection">
+        @Messages("ssttp.landing.conditions")
+        @message_list(Some("bullets"), "ssttp.landing.conditions.list.")
 
+    </div>
+    <div class="subsection">
+        @Messages("ssttp.landing.contact")
+        @message_list(Some("bullets"), "ssttp.landing.contact.list.")
+        @Messages("ssttp.landing.contact.footer") @Messages("ssttp.landing.contact.number")
+    </div>
 }
 
 

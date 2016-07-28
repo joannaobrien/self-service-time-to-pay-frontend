@@ -1,0 +1,13 @@
+@(modifierClass: Option[String], messagePrefix: String)
+@import play.api.Play.current
+@if(Messages.messages.get("default").isDefined) {
+    @if(modifierClass.isDefined) {
+        <ul class="@modifierClass.get">
+    } else {
+        <ul>
+    }
+    @for(message <- Messages.messages.get("default").get.filterKeys(_.startsWith(messagePrefix)).keys.toSeq.sorted) {
+        <li>@Messages(message)</li>
+    }
+    </ul>
+}

@@ -1,10 +1,24 @@
 #common
-ssttp.common.title=Self Service Time To Pay
+ssttp.common.title=Time To Pay
 
 #landing
-ssttp.landing.title=Pay Tax in Instalments
+ssttp.landing.title=Pay a Self Assessment tax debt in instalments
 
-ssttp.landing.intro=You can arrange to pay your tax in instalments in some situations. To do so you need to call HMRC and talk to an agent.
+ssttp.landing.intro=If you can’t pay a Self Assessment tax debt on time, you might be able to pay it in instalments.
+ssttp.landing.conditions=You won’t be able to do this if:
+ssttp.landing.conditions.list.1=you’re not up to date with your Self Assessment returns
+ssttp.landing.conditions.list.2=the debt is more than 30 days old
+ssttp.landing.conditions.list.3=you already have an instalment plan set up with us
+ssttp.landing.contact=To make this arrangement you’ll need to call HMRC. We’ll ask you about:
+ssttp.landing.contact.list.1=your reference number
+ssttp.landing.contact.list.2=what you’ve done to try to pay the bill
+ssttp.landing.contact.list.3=your income and outgoings
+ssttp.landing.contact.list.4=savings and investments
+ssttp.landing.contact.list.5=if you can pay some of the bill now
+ssttp.landing.contact.list.6=how long you’ll need to pay
+ssttp.landing.contact.list.7=your bank details
+ssttp.landing.contact.footer=Once you’ve got all of this information, please call
+ssttp.landing.contact.number=00000 0000000
 
 #errors
 global.error.400.title=Bad request - 400
